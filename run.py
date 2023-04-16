@@ -43,5 +43,8 @@ class App(tk.Tk):
         self.title = 'Currency Converter'
         self.currency_converter = converter
         
+        # Sets the dimension of the GUI window (WidthxHeight)
+        self.geometry("530x200")
+        
 api_url = 'https://api.exchangerate-api.com/v4/latest/USD'      
 CurrencyConverter(api_url)
