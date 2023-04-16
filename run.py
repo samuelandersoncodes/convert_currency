@@ -29,10 +29,19 @@ class CurrencyConverter():
         amount = round(amount * self.currencies[to_currency], 4)
         return amount
 
-class App():
+class App(tk.Tk):
     """
     Class for the app frames and labels. 
     """
-
+    def __init__(self, converter):
+        """
+        This method facilitates inheritance from the tk package for the widget design
+        It is responsible for creating the app widget and positioning them unto the frame
+        for the frame to be loaded onto the window
+        """      
+        tk.Tk.__init__(self)
+        self.title = 'Currency Converter'
+        self.currency_converter = converter
+        
 api_url = 'https://api.exchangerate-api.com/v4/latest/USD'      
 CurrencyConverter(api_url)
