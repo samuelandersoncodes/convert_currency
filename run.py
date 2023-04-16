@@ -53,6 +53,12 @@ class App(tk.Tk):
         # positions the above labels by absolute coordinates
         self.intro_label.place(x = 10 , y = 5)
         self.date_label.place(x = 200, y= 50)
+
+        # Creates an entry box for amount input
+        valid = (self.register(self.restrictNumberOnly), '%d', '%P')
+        self.amount_field = Entry(self, bd = 3, relief = tk.RIDGE, justify = tk.CENTER,validate='key', validatecommand=valid)
+        self.converted_amount_field_label = Label(self, text = '', fg = 'black', bg = 'white', relief = tk.RIDGE, 
+        justify = tk.CENTER, width = 17, borderwidth = 3)
                 
 api_url = 'https://api.exchangerate-api.com/v4/latest/USD'      
 CurrencyConverter(api_url)
