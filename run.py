@@ -29,5 +29,10 @@ class CurrencyConverter():
         amount = round(amount * self.currencies[to_currency], 4)
         return amount
 
+class App():
+    """
+    Class for the app frames and labels. 
+    """
+
 api_url = 'https://api.exchangerate-api.com/v4/latest/USD'      
 CurrencyConverter(api_url)
