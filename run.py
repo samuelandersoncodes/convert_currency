@@ -45,6 +45,13 @@ class App(tk.Tk):
         
         # Sets the dimension of the GUI window (WidthxHeight)
         self.geometry("530x200")
+
+        # Label specifications
+        self.intro_label = Label(self, text = 'Your One Time Pocket Currency Converter', fg = 'black', bg='darkgray', relief = tk.RAISED, borderwidth = 3)
+        self.intro_label.config(font = ('Courier',15,'bold'))
+        self.date_label = Label(self, text = f" Date : {self.currency_converter.data['date']}", relief = tk.GROOVE, borderwidth = 5)
+        self.intro_label.place(x = 10 , y = 5)
+        self.date_label.place(x = 200, y = 50)
         
 api_url = 'https://api.exchangerate-api.com/v4/latest/USD'      
 CurrencyConverter(api_url)
