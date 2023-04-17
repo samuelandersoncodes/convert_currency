@@ -72,6 +72,11 @@ class App(tk.Tk):
         self.to_currency_dropdown = ttk.Combobox(self, textvariable=self.to_currency_variable,values=
         list(self.currency_converter.currencies.keys()), font = font, state = 'readonly', width = 12, justify = tk.CENTER)
 
+        # positions the dropdown menu 
+        self.from_currency_dropdown.place(x = 30, y= 120)
+        self.amount_field.place(x = 36, y = 150)
+        self.to_currency_dropdown.place(x = 340, y= 120)
+        self.converted_amount_field_label.place(x = 346, y = 150)
 
 api_url = 'https://api.exchangerate-api.com/v4/latest/USD'      
 CurrencyConverter(api_url)
