@@ -59,6 +59,19 @@ class App(tk.Tk):
         self.amount_field = Entry(self, bd = 3, relief = tk.RIDGE, justify = tk.CENTER,validate='key', validatecommand=valid)
         self.converted_amount_field_label = Label(self, text = '', fg = 'black', bg = 'white', relief = tk.RIDGE, 
         justify = tk.CENTER, width = 17, borderwidth = 3)
-                
+
+        # Creates dropdown values for the various currencies
+        self.from_currency_variable = StringVar(self)
+        self.from_currency_variable.set("INR") # default value
+        self.to_currency_variable = StringVar(self)
+        self.to_currency_variable.set("USD") # default value
+        font = ("Courier", 12, "bold")
+        self.option_add('*TCombobox*Listbox.font', font)
+        self.from_currency_dropdown = ttk.Combobox(self, textvariable=self.from_currency_variable,values=
+        list(self.currency_converter.currencies.keys()), font = font, state = 'readonly', width = 12, justify = tk.CENTER)
+        self.to_currency_dropdown = ttk.Combobox(self, textvariable=self.to_currency_variable,values=
+        list(self.currency_converter.currencies.keys()), font = font, state = 'readonly', width = 12, justify = tk.CENTER)
+
+
 api_url = 'https://api.exchangerate-api.com/v4/latest/USD'      
 CurrencyConverter(api_url)
