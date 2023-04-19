@@ -104,5 +104,7 @@ def restrictNumberOnly(self, action, string):
         result = regex.match(string)
         return (string == "" or (string.count('.') <= 1 and result is not None))
 
-api_url = 'https://api.exchangerate-api.com/v4/latest/USD'      
-CurrencyConverter(api_url)
+# Driver code
+if __name__ == '__main__':
+    url = 'https://api.exchangerate-api.com/v4/latest/USD'
+    converter = CurrencyConverter(url)
