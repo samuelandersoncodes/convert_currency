@@ -83,5 +83,18 @@ class App(tk.Tk):
         self.convert_button.config(font=('Courier', 10, 'bold'))
         self.convert_button.place(x = 225, y = 135)
 
+def perform(self):
+        """
+        This function performs the currency conversion
+        """
+        amount = float(self.amount_field.get())
+        from_curr = self.from_currency_variable.get()
+        to_curr = self.to_currency_variable.get()
+
+        converted_amount = self.currency_converter.convert(from_curr,to_curr,amount)
+        converted_amount = round(converted_amount, 2)
+
+        self.converted_amount_field_label.config(text = str(converted_amount))
+
 api_url = 'https://api.exchangerate-api.com/v4/latest/USD'      
 CurrencyConverter(api_url)
