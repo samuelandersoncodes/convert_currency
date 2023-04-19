@@ -108,3 +108,9 @@ def restrictNumberOnly(self, action, string):
 if __name__ == '__main__':
     url = 'https://api.exchangerate-api.com/v4/latest/USD'
     converter = CurrencyConverter(url)
+
+# Runs the App class with the passed exchange rate url stored in converter
+App(converter)
+
+#runs the Tkinter event loop and starts the GUI
+mainloop()
