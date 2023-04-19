@@ -96,5 +96,13 @@ def perform(self):
 
         self.converted_amount_field_label.config(text = str(converted_amount))
 
+def restrictNumberOnly(self, action, string):
+        """
+        restricts the converted amount to numeric values only
+        """
+        regex = re.compile(r"[0-9,]*?(\.)?[0-9,]*$")
+        result = regex.match(string)
+        return (string == "" or (string.count('.') <= 1 and result is not None))
+
 api_url = 'https://api.exchangerate-api.com/v4/latest/USD'      
 CurrencyConverter(api_url)
