@@ -78,5 +78,10 @@ class App(tk.Tk):
         self.to_currency_dropdown.place(x = 340, y= 120)
         self.converted_amount_field_label.place(x = 346, y = 150)
 
+        # Creates and positions the convert button
+        self.convert_button = Button(self, text = "Convert", fg = "black", bg = "gray", command = self.perform)
+        self.convert_button.config(font=('Courier', 10, 'bold'))
+        self.convert_button.place(x = 225, y = 135)
+
 api_url = 'https://api.exchangerate-api.com/v4/latest/USD'      
 CurrencyConverter(api_url)
